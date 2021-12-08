@@ -47,7 +47,8 @@ class GuessTheNumber:
                 print(bcolors.FAIL + "  ⬇️   Opps! You guessed too small!" + bcolors.WHITE)
             else:
                 print(bcolors.FAIL + "  ⬆️   Opps! You guessed too high!" + bcolors.WHITE)
-            chances += 1
+                chances += 1
+
 
 
 # launching the game
@@ -58,8 +59,8 @@ GuessTheNumber.start()
 while True:
     while True:
         print (175 * "-")
-        restart = input("Would you like to restart the game?🟡 YES or 🔴 NO:")
-        if restart in ('yes', 'no'):
+        restart = input("Would you like to restart the game? 🟡 YES or 🔴 NO:")
+        if restart in ('yes', 'no', 'YES', 'NO'):
             break
         print("invalid input.")
     if restart == "yes" or restart == "YES":
