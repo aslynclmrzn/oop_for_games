@@ -40,7 +40,7 @@ class GuessTheNumber:
             if guess == random:
                 print (175 * "-")
                 print (" 🎉  🎉  🎉   YOU WON!    🎉  🎉  🎉 ".center(columns))
-                print(bcolors.YELLOW + f"\nCongratulations! You got it in {chances + 1} chance{'s' if chances > 1 else ''}!" + bcolors.WHITE)
+                print(bcolors.YELLOW + f"\nCongratulations! You got it in {chances + 1} chances!" + bcolors.WHITE)
                 print(bcolors.OKGREEN + f"You got it right!!! It's {random}." + bcolors.WHITE)
                 break
             elif guess < random:
@@ -55,16 +55,21 @@ GuessTheNumber = GuessTheNumber()
 GuessTheNumber.start()
 
 # loop to restart the game
-restart = True
-while restart:
-    print (175 * "-")
-    restart = input("Would you like to restart the game?🟡 YES or 🔴 NO:")
+while True:
+    while True:
+        print (175 * "-")
+        restart = input("Would you like to restart the game?🟡 YES or 🔴 NO:")
+        if restart in ('yes', 'no'):
+            break
+        print("invalid input.")
     if restart == "yes" or restart == "YES":
+        print ("... ⏳ ...".center(columns))
         print (175 * "-")
         restart = GuessTheNumber.start()
+        continue
     elif restart == "no" or restart == "NO":
-        restart = False
         print (bcolors.HEADER + "Thank you for playing!".center(columns) + bcolors.WHITE)
         print ("🔒".center(columns) )
         print(bcolors.FAIL +"END".center(columns) + bcolors.WHITE)
         print (175 * "-")
+        break
